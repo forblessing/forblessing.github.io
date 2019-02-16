@@ -1,0 +1,16 @@
+body {
+    font-size: 1.4rem;
+}
+
+.am-g {
+    width: 60%;
+}
+
+.form-wrapper{
+    margin-top:20px;
+}
+
+.am-form-label {
+    color: #999;
+    font-weight: normal;
+}
