@@ -1,7 +1,7 @@
 const ctime = 180;
 var time = ctime;
 var order;
-var oldprice = '20';
+var oldprice = '19';
 var storage = sessionStorage;
 var qrcode;
 var qrcode2;
@@ -74,14 +74,14 @@ function newOrder() {
 function weixin() {
     order.type = 'weixin';
     qrcode.makeCode(setting.wechatUrl);
-    document.getElementById("typei").src = 'img/weixin-s.jpg';
+    document.getElementById("typei").src = 'img/weixin.jpg';
     newOrder();
 }
 
 function alipay() {
     order.type = 'alipay';
     qrcode.makeCode(setting.aliUrl);
-    document.getElementById("typei").src = 'img/zhifubao-s.jpg';
+    document.getElementById("typei").src = 'img/alipay.jpg';
     newOrder();
 }
 
