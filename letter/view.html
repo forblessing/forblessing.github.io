@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="表白,在线表白,表白网页,制作表白网页" />
+    <meta name="keywords" content="表白,在线表白,表白网页" />
+    <link rel="shortcut icon" href="https://luangeng2008.gitee.io/cdn/favicon.ico" />
+    <title>预览</title>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    <link rel="stylesheet" href="view.css">
+</head>
+
+<body onload="init()">
+    <header data-am-widget="header" class="am-header am-header-default">
+        <div class="am-header-left am-header-nav">
+            <a href="/" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div>
+        <h1 class="am-header-title"></h1>
+        <div class="am-header-right am-header-nav">
+            <a href="tools.html" class="">
+                <i class="am-header-icon am-icon-bars"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="am-g">
+        <div class="context-wapper">
+            <div class="am-u-sm-5">
+                <div class="preview-phone">
+                    <div class="preview-phone-top">
+                        <span></span>
+                    </div>
+                    <div class="preview-phone-home"></div>
+                    <div class="preview-view preview-phone-view">
+                        <iframe class="preview-view-iframe preview-phone-view-iframe" src="template/index.html"
+                            frameborder="0" scrolling="no"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="am-u-sm-2">
+                <div class="oper"></div>
+            </div>
+
+            <div class="am-u-sm-5">
+                <div class="pay">
+                    <div class="pay-b">
+                        <pre style="text-align:left">操作步骤：
+1. 完成编辑以后选择点击微信或支付宝，出现付款二维码后使用手机扫码支付，支付完成后网站
+2. 如果支付完成以后系统没有生成对应的二维码和访问地址，可联系客服，获取授权码
+3. 然后在自助页输入邀请码，点击自助生成二维码。
+
+注意事项：
+1. 扫码支付后请勿刷新浏览器，负责会导致订单查询中断。
+2.订单失效后请勿扫码支付，请重新生成一个订单。
+</pre>
+
+                        <button onclick="weixin()" class="am-btn am-btn-success am-btn-block">微信支付</button>
+                        <button onclick="alipay()" class="am-btn am-btn-secondary am-btn-block">支付宝</button>
+                        <a class="am-btn am-btn-danger am-btn-block" href="edit.html">返回编辑</a>
+                    </div>
+                    <div class="pay-c">
+                        <div><span class="small">原价:￥<span id="oldprice">16</span> - 优惠:￥<span id="discount">0</span></span></div>
+                        <div class="card">
+                            <img id="typei">
+                            <div id="qrcode" class="qrcode">
+                                <div id="timeout" class="am-vertical-align" style="height: 100%; display:none;">
+                                    <span class="small am-vertical-align-middle">订单已失效，请重新生成订单</span>
+                                </div>
+                            </div>
+                            <div><span id="price" class="price"></span></div>
+                            <span class="small">扫描二维码完成支付</span>
+                        </div>
+                        <br>
+                        <span id="timeo" class="am-badge am-badge-danger am-text-default am-radius">剩余支付时间: <span id="time">03:00</span></span>
+                        <div style="padding:30px 30px;">
+                            <button onclick="cancel()" class="am-btn am-btn-secondary am-btn-block">取消订单</button>
+                        </div>
+                        <br>
+                        <div class="loading" id=loading>
+                            <div><img id="loadingp" width="50px" height="50px" src="img/loading.gif"></div>
+                            <span id="status" class="small">正在查询支付结果</span>
+                        </div>
+                    </div>
+                    <div class="pay-r">
+                        <div class="card">
+                            <a href="##" class="am-icon-btn am-success am-icon-check"></a>
+                            <span>支付成功！</span>
+                            <div id="qrcode2" class="qrcode"></div>
+                            <div><span class="small">二维码已生成</span></div>
+                            <div><span class="small">请使用手机扫码预览, 并妥善保存</span>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div style="padding:10px 30px;">
+                                <a class="am-btn am-btn-danger am-btn-block" href="edit.html">继续编辑</a>
+                                <button onclick="update()" class="am-btn am-btn-secondary am-btn-block">保存更改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://luangeng2008.gitee.io/cdn/js/qrcode.min.js"></script>
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script type="text/javascript" src="https://luangeng2008.gitee.io/cdn/js/NTP.js"></script>
+<script type="text/javascript" src="view.js"></script>
+
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://luangeng2008.gitee.io/cdn/favicon.ico" />
+    <title>歌曲列表</title>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+
+    <style>
+        .am-g {
+            width: 70%;
+            margin-top: 20px;
+        }
+
+        i {
+            color: #3bb4f2;
+        }
+    </style>
+</head>
+
+<body>
+    <header data-am-widget="header" class="am-header am-header-default">
+        <div class="am-header-left am-header-nav">
+            <a href="/" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div>
+        <h1 class="am-header-title"></h1>
+        <div class="am-header-right am-header-nav">
+            <a href="tools.html" class="">
+                <i class="am-header-icon am-icon-bars"></i>
+            </a>
+        </div>
+    </header>
+    
+    <div class="am-g">
+        <table class="am-table am-table-bordered am-table-striped">
+            <thead>
+                <tr>
+                    <th style="width:20%;">名称</th>
+                    <th>地址</th>
+                    <th style="width:5%;">试听</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>卡农</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+                <tr>
+                    <td>需要人陪</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+                <tr>
+                    <td>愿得一人心</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+                <tr>
+                    <td>Amaze UI(Active)</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+                <tr>
+                    <td>Amaze UI(Active)</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+                <tr>
+                    <td>Amaze UI(Active)</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+                <tr>
+                    <td>Amaze UI(Active)</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+                <tr>
+                    <td>Amaze UI(Active)</td>
+                    <td>https://luangeng2008.gitee.io/cdn/mp3/%E5%8D%A1%E5%86%9C.mp3</td>
+                    <td><i class="am-success am-icon-play"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <audio id="audio"></audio>
+    <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+    <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script>
+        $('i').click(function () {
+            let url = $(this).parent().prev().html();
+            $('tr').removeClass('am-success');
+            $(this).parent().parent().addClass('am-success');
+            audio.src = url;
+            audio.play();
+        });
+    </script>
+</body>
+
+</html>

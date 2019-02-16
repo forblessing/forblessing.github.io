@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="表白,在线表白,表白网页,制作表白网页" />
+    <meta name="keywords" content="表白,在线表白,表白网页" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="shortcut icon" href="https://luangeng2008.gitee.io/cdn/favicon.ico" />
+    <title>制作页</title>
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    <link rel="stylesheet" href="edit.css">
+</head>
+
+<body onload="init()">
+    <header data-am-widget="header" class="am-header am-header-default">
+        <div class="am-header-left am-header-nav">
+            <a href="/" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div>
+        <h1 class="am-header-title">
+            <a class="">  </a>
+        </h1>
+        <div class="am-header-right am-header-nav">
+            <a href="tools.html" class="">
+                <i class="am-header-icon am-icon-bars"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="am-g">
+        <div class="form-wrapper">
+            <form class="am-form am-form-horizontal am-form-group-sm" name="letter">
+                <div class="am-form-group">
+                    <div class="am-u-sm-10 am-u-sm-offset-2">
+                        <a onclick="setData(defaultData)" class="am-btn am-btn-success am-btn-block">应用默认设置</a>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="caption" class="am-u-sm-2 am-form-label">标题</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="caption" class="am-form-field" required="required" placeholder="输入标题, 建议小于12个字">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="text" class="am-u-sm-2 am-form-label">正文</label>
+                    <div class="am-u-sm-10">
+                        <textarea id="text" rows="5" class="am-form-field" placeholder="正文, 建议小于100个字"></textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="author" class="am-u-sm-2 am-form-label">落款</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="author" class="am-form-field" placeholder="落款, 建议小于10个字">
+                    </div>
+                </div>
+                <hr data-am-widget="divider" class="am-divider am-divider-default" />
+                <div class="am-form-group">
+                    <label for="p1" class="am-u-sm-2 am-form-label">照片一</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="p1" class="am-form-field" placeholder="照片链接">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="p2" class="am-u-sm-2 am-form-label">照片二</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="p2" class="am-form-field" placeholder="照片链接">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="p3" class="am-u-sm-2 am-form-label">照片三</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="p3" class="am-form-field" placeholder="照片链接">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="p4" class="am-u-sm-2 am-form-label">照片四</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="p4" class="am-form-field" placeholder="照片链接">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="p5" class="am-u-sm-2 am-form-label">照片五</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="p5" class="am-form-field" placeholder="照片链接">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="p6" class="am-u-sm-2 am-form-label">照片六</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="p6" class="am-form-field" placeholder="照片链接">
+                    </div>
+                </div>
+                <hr data-am-widget="divider" class="am-divider am-divider-default" />
+                <div class="am-form-group">
+                    <label for="date" class="am-u-sm-2 am-form-label">相遇时间</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="date" class="am-form-field" placeholder="相遇日期, 如2019-01-03" />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="word" class="am-u-sm-2 am-form-label">表白文字</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="word" class="am-form-field" placeholder="表白文字, 建议小于15个字">
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="music" class="am-u-sm-2 am-form-label">背景音乐</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="music" class="am-form-field" placeholder="背景音乐链接">
+                        <a href="../mp3s.html" target="_blank">去选择</a>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="backpic" class="am-u-sm-2 am-form-label">背景图片</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="backpic" class="am-form-field" placeholder="背景图片链接">
+                        <a href="../backs.html" target="_blank">去选择</a>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-10 am-u-sm-offset-2">
+                        <a type="submit" onclick="save()" class="am-btn am-btn-secondary am-btn-block" href="view.html">生成预览</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+<script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.widgets.helper.min.js"></script>
+<script src="index.js"></script>
+<script src="default.js"></script>
+
+</html>

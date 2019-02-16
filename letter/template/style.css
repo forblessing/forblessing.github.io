@@ -1,0 +1,247 @@
+﻿@charset "utf-8";
+@font-face {
+      font-family: nu;
+      src: url('nu.ttf') format("truetype");
+    }
+@font-face {
+	font-family: digit;
+	src: url("digital.ttf") format("truetype");
+}
+
+html{
+      height:100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: Arial,微软雅黑;
+      touch-action: none;
+    }
+
+body {
+    background-color: #f4f4f4;
+    overflow: hidden;
+    height:100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    /* background-image: url('https://luangeng2008.gitee.io/cdn/backpic/2.jpg'); */
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+.loading{
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  margin: 0;
+  top:0;
+  padding:0;
+  background-color: #5f5f5f;
+  background-image: url("https://luangeng2008.gitee.io/cdn/loading/l1.jpg");
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+.bb_div{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top:0;
+    padding:0;
+    position: absolute;
+}
+
+.bb {
+    position: absolute;
+    top: 3%;
+    bottom:7%;
+    left: 4%;
+    right:4%;
+    z-index: 1;
+    margin: 0 auto;
+    border-radius: 6px;
+    box-shadow: 0px 0px 2px #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #00000066;
+    font-family:nu,微软雅黑;
+}
+
+.bb h2 {
+    padding: 20px 0px 10px;
+    width: 100%;
+    margin: 0px;
+    font-size: 19px;
+    text-align: center;
+    color: #ffffff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.bb_text {
+    height: auto;
+    padding: 10px 10px;
+    text-indent: 2em;
+    line-height: 22px;
+    font-size: 19px;
+    color: #ffffff;
+    word-break:break-all;
+}
+
+.bb_name {
+    text-align: right;
+    padding: 20px 15px 0px 15px;
+    line-height: 20px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.next{
+    position:absolute;
+    bottom:1%;
+    text-align:right;
+    width:10%;
+    right:5%;
+    font-family:nu,微软雅黑;
+    color:white;
+    font-size:18px;
+}
+.pre{
+    position:absolute;
+    bottom:1%;
+    width:10%;
+    left:5%;
+    font-family:nu,微软雅黑;
+    color:white;
+    font-size:18px;
+}
+
+.blueyellow{
+	top:83%;
+	font-size:5.5vw;
+    position: absolute;
+    color:white;
+    animation:blueyellow 1.5s ease 0.5s infinite alternate ;
+    -moz-animation:blueyellow 1.5s ease 0.5s infinite alternate;
+    -webkit-animation:blueyellow 1.5s ease 0.5s infinite alternate;
+    -o-animation:blueyellow 1.5s ease 0.5s infinite alternate;
+}
+@keyframes blueyellow{
+    0%{text-shadow: 0 0 5px #FFFFFF, 0 0 7px #FFFFFF, 0 0 15px #00FFFF}
+    100%{text-shadow: 0 0 5px #FFFFFF, 0 0 7px #FFFFFF, 0 0 15px #ff0202}
+}
+
+/*******photos************/
+.photos{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0;
+  top:0px;
+}
+	
+.slider-ctr {
+  width: 84%;
+  height: 65%;
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  box-sizing: border-box;
+  border: 10px solid #ffffff70;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.slider-ctr:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin:0;
+  transition: 0.45s all cubic-bezier(0.65, 0.05, 0.36, 1);
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+.slider-back{
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.slide.slide-on {
+  -webkit-clip-path: inset(0 100% 0 0);
+  clip-path: inset(0 100% 0 0);
+}
+.slide.text-on .title {
+  transition: 0.3s all cubic-bezier(0.65, 0.05, 0.36, 1) 0.45s;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+.slide.text-on .author {
+  transition: 0.3s all cubic-bezier(0.65, 0.05, 0.36, 1) 0.6s;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+.slide img {
+  display: block;
+}
+.slide .title {
+  font-size: 20px;
+  margin-bottom: 2px;
+  color: white;
+  transition: 0.3s all cubic-bezier(0.65, 0.05, 0.36, 1) 0.45s;
+  -webkit-clip-path: inset(0 0 0 100%);
+  clip-path: inset(0 0 0 100%);
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  position: relative;
+}
+.slide .author {
+  font-size: 16px;
+  color: white;
+  opacity: .8;
+  transition: 0.3s all cubic-bezier(0.65, 0.05, 0.36, 1) 0.45s;
+  -webkit-clip-path: inset(0 0 0 100%);
+  clip-path: inset(0 0 0 100%);
+  font-weight: 300;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 9;
+}
+.memo{
+    position:absolute;
+    width:90%;
+    top:75%;
+    color:white;
+    left:5%;
+    font-family:nu,微软雅黑;
+    font-size:20px;
+}
+.digit {
+    font-family: "digit";
+	font-size: 26px
+}
