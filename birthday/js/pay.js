@@ -8,7 +8,7 @@ var qrcode2;
 var timer;
 
 var setting = {
-    wechatUrl: "wxp://f2f0kG7E8M4LeWVjVw09TQv59vUH5GQomHo3",
+    wechatUrl: "wxp://f2f0HZoEtbWThO-JXf5Kt2SjGdS72oGpzKnE",
     aliUrl: "HTTPS://QR.ALIPAY.COM/FKX02837IOEGKJR3201K51"
 };
 
@@ -57,7 +57,7 @@ function newOrder() {
     order.discount = random(100, 400);
     order.price = (order.oldprice - order.discount).toFixed(2);
     order.source = window.location.href;
-    order.create_time = jsClockGMT();
+    order.createtime = jsClockGMT();
     storage.setItem('order', JSON.stringify(order));
     time = ctime;
     $('#timeo').show();
@@ -88,7 +88,7 @@ function alipay() {
 function save() {
     var Order = AV.Object.extend('Order');
     var o = new Order();
-    o.set('pay_time', jsClockGMT());
+    o.set('paytime', jsClockGMT());
     o.set('price', order.price);
     o.set('type', 'alipay');
     o.save().then(function (res) {}, function (error) {});
@@ -106,11 +106,11 @@ function update() {
 
 function query() {
     var query1 = new AV.Query('Order');
-    query1.greaterThan('pay_time', order.create_time);
+    query1.greaterThan('paytime', order.createtime);
     query1.equalTo('price', order.price);
     query1.equalTo('type', order.type);
     var query2 = new AV.Query('Order');
-    query2.lessThan('pay_time', order.create_time + ctime + 10);
+    query2.lessThan('paytime', order.createtime + ctime + 10);
     var query = AV.Query.and(query1, query2);
     query.find().then(function (results) {
         if (results.length > 0) {
