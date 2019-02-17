@@ -28,6 +28,11 @@ function init() {
         ok();
     }
     AV.initialize("qGpowKJBhfJAFlsz4NtCLjlP-gzGzoHsz", "YKRMzp6TjQQ9op2YGxpYpmHg");
+    AV.User.logIn('user1', 'lg12345').then(function (loginedUser) {
+        console.log('login seccess.')
+    }, function (error) {
+        console.error(error);
+    });
 }
 
 
