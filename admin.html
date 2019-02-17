@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="表白,在线表白,表白网页,制作表白网页" />
+    <meta name="keywords" content="表白,在线表白,表白网页" />
+    <link rel="shortcut icon" href="https://luangeng2008.gitee.io/cdn/favicon.ico" />
+    <title>预览</title>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+</head>
+
+<body onload="init()">
+
+    <div class="am-g">
+        <div class="context-wapper">
+            <form class="am-form am-form-horizontal am-form-group-sm" name="letter">
+                <div class="am-form-group">
+                    <label for="name" class="am-u-sm-2 am-form-label">名称</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="name" class="am-form-field" required="required" placeholder="">
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label for="email" class="am-u-sm-2 am-form-label">邮箱</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="email" class="am-form-field" required="required" placeholder="">
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label for="pwd" class="am-u-sm-2 am-form-label">密码</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" id="pwd" class="am-form-field" required="required" placeholder="">
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <div class="am-u-sm-10 am-u-sm-offset-2">
+                        <a type="submit" onclick="signup()" class="am-btn am-btn-secondary am-btn-block">注册</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>
+    function init() {
+        AV.initialize("qGpowKJBhfJAFlsz4NtCLjlP-gzGzoHsz", "YKRMzp6TjQQ9op2YGxpYpmHg");
+    }
+
+    function signup() {
+        var username = $('#name').val();
+        var password = $('#pwd').val();
+        var email = $('#email').val();
+        if (username.trim().length == 0 || password.trim().length == 0 || email.trim().length == 0) {
+            return;
+        }
+
+        var user = new AV.User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.signUp().then(function (user) {
+            alert('signup success')
+        }, (function (error) {
+            alert(JSON.stringify(error));
+        }));
+    };
+</script>
+
+</html>

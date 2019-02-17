@@ -1,8 +1,8 @@
 ﻿@charset "utf-8";
-@font-face {
+/* @font-face {
       font-family: nu;
       src: url('nu.ttf') format("truetype");
-    }
+    } */
 @font-face {
 	font-family: digit;
 	src: url("digital.ttf") format("truetype");
