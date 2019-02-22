@@ -7,33 +7,34 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Amaze UI</title>
+    <title>自助工具</title>
     <link rel="stylesheet" href="../css/amazeui.min.css">
 
     <style>
         .am-g {
             width: 60%;
+            margin-top: 100px;
         }
     </style>
 </head>
 
-<body>
+<body onload="init()">
     <div class="am-g">
         <div class="am-form am-form-horizontal am-form-group-sm">
             <div class="am-form-group">
                 <div class="am-u-sm-10 am-u-sm-offset-2">
-                    <a onclick="setData(defaultData)" class="am-btn am-btn-success am-btn-block">清除所有缓存</a>
+                    <a onclick="setData(defaultData)" class="am-btn am-btn-danger am-btn-block">清除所有缓存(慎点)</a>
                 </div>
             </div>
 
             <div class="am-form-group">
                 <div class="am-u-sm-10 am-u-sm-offset-2">
-                    <a onclick="setData(defaultData)" class="am-btn am-btn-success am-btn-block">应用默认设置</a>
+                    <a onclick="setData()" class="am-btn am-btn-secondary am-btn-block">清空订单</a>
                 </div>
             </div>
 
             <div class="am-form-group">
-                <label for="caption" class="am-u-sm-2 am-form-label">验证码</label>
+                <label for="caption" class="am-u-sm-2 am-form-label">授权码</label>
                 <div class="am-u-sm-10">
                     <input type="text" id="caption" class="am-form-field" required="required" placeholder="输入验证码">
                 </div>
@@ -41,16 +42,38 @@
 
             <div class="am-form-group">
                 <div class="am-u-sm-10 am-u-sm-offset-2">
-                    <a onclick="setData(defaultData)" class="am-btn am-btn-success am-btn-block">手动生成二维码</a>
+                    <a onclick="make()" class="am-btn am-btn-success am-btn-block">手动生成二维码</a>
                 </div>
             </div>
         </div>
+        <div id="qrcode" class="qrcode"></div>
     </div>
 
 
     <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
-    <script src="../amazeui.min.js"></script>
-    <script src="js/edit.js"></script>
+    <script type="text/javascript" src="https://luangeng2008.gitee.io/cdn/js/qrcode.min.js"></script>
+    <script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script src="js/pay.js"></script>
+    <script>
+        var qrcode;
+        function init(){
+            AV.initialize("qGpowKJBhfJAFlsz4NtCLjlP-gzGzoHsz", "YKRMzp6TjQQ9op2YGxpYpmHg");
+            qrcode = new QRCode(document.getElementById("qrcode"), {
+                width: 220,
+                height: 220
+            });
+        }
+        function make() {
+            var code = $('#caption').val();
+            if (code.trim().length == 0) {
+                return;
+            }
+            var order = JSON.parse(storage.getItem('order'));
+            order.id = code;
+            update(order);
+            qrcode.makeCode("https://letter.html?token=" + order.id);
+        }
+    </script>
 </body>
 
 </html>

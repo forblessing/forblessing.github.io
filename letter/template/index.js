@@ -177,22 +177,32 @@ function nextpic() {
 
 function timeElapse(c) {
     var e = Date();
-    var f = (Date.parse(e) - Date.parse(c)) / 1000;
-    if (f < 0) f = 0;
+    var m = (Date.parse(e) - Date.parse(c)) / 1000;
+    if (m < 0) m = 0;
 
-    var g = Math.floor(f / (3600 * 24));
-    f = f % (3600 * 24);
-    var b = Math.floor(f / 3600);
-    if (b < 10) b = "0" + b
+    var y = Math.floor(m/(3600*24*365));
+    if(y!=0){
+        m = m %(3600*24*365);
+    }
 
-    f = f % 3600;
-    var d = Math.floor(f / 60);
-    if (d < 10) d = "0" + d
+    var d = Math.floor(m / (3600 * 24));
+    m = m % (3600 * 24);
+    var h = Math.floor(m / 3600);
+    if (h < 10) h = "0" + h
 
-    f = f % 60;
-    if (f < 10) f = "0" + f
+    m = m % 3600;
+    var day = Math.floor(m / 60);
+    if (day < 10) day = "0" + day
 
-    var a = '<span class="digit">' + g + '</span> 天 <span class="digit">' + b + '</span> 小时 <span class="digit">' + d + '</span> 分钟 <span class="digit">' + f + "</span> 秒";
+    m = m % 60;
+    if (m < 10) m = "0" + m
+
+    var a;
+    if(y==0){
+        a = '<span class="digit">' + d + '</span> 天 <span class="digit">' + h + '</span> 小时 <span class="digit">' + day + '</span> 分钟 <span class="digit">' + m + "</span> 秒";
+    }else {
+        a = '<span class="digit">'+y+'</span> 年 <span class="digit">' + d + '</span> 天 <span class="digit">' + h + '</span> 小时 <span class="digit">' + day + '</span> 分钟 <span class="digit">' + m + "</span> 秒";
+    }
     $("#elapseClock").html(a)
 }
 

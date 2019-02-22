@@ -1,7 +1,7 @@
 const ctime = 180;
 var time = ctime;
 var order;
-var oldprice = '4';
+var oldprice = '15';
 var storage = sessionStorage;
 var qrcode;
 var qrcode2;
@@ -9,7 +9,7 @@ var timer;
 
 var setting = {
     wechatUrl: "wxp://f2f0HZoEtbWThO-JXf5Kt2SjGdS72oGpzKnE",
-    aliUrl: "HTTPS://QR.ALIPAY.COM/FKX02837IOEGKJR3201K51"
+    aliUrl: "https://qr.alipay.com/fkx04310cqou589zzew3k47"
 };
 
 function init() {
@@ -28,11 +28,6 @@ function init() {
         ok();
     }
     AV.initialize("qGpowKJBhfJAFlsz4NtCLjlP-gzGzoHsz", "YKRMzp6TjQQ9op2YGxpYpmHg");
-    AV.User.logIn('user1', 'lg12345').then(function (loginedUser) {
-        console.log('login seccess.')
-    }, function (error) {
-        console.error(error);
-    });
 }
 
 
@@ -49,7 +44,7 @@ function begin() {
             return;
         }
 
-        if (time <= (ctime - 10) && time % 5 == 0) {
+        if (time <= (ctime - 15) && time % 5 == 0) {
             $('#loading').show()
             query();
         }
@@ -59,7 +54,7 @@ function begin() {
 
 function newOrder() {
     order.oldprice = oldprice;
-    order.discount = random(100, 400);
+    order.discount = random(100, 200);
     order.price = (order.oldprice - order.discount).toFixed(2);
     order.source = window.location.href;
     order.createtime = jsClockGMT();
@@ -96,16 +91,20 @@ function save() {
     o.set('paytime', jsClockGMT());
     o.set('price', order.price);
     o.set('type', 'alipay');
-    o.save().then(function (res) {}, function (error) {});
+    o.save().then(function (res) {}, function (error) {
+        alert("错误：" + error.message);
+    });
 }
 
-function update() {
+function update(order) {
     if (order.id != undefined) {
         var av = AV.Object.createWithoutData('Order', order.id);
         for (p in order) {
             av.set(p, order[p]);
         }
-        av.save();
+        av.save().then(function (res) {}, function (error) {
+            alert("授权码错误：" + error.message);
+        });
     }
 }
 
@@ -134,7 +133,7 @@ function ok() {
     $(".pay-r").show();
     storage.setItem('order', JSON.stringify(order));
     order.data = localStorage.getItem('letter');
-    update();
+    update(order);
     qrcode2.makeCode("https://letter.html?token=" + order.id);
 }
 
@@ -151,7 +150,6 @@ function jsClockGMT() {
 }
 
 function random(l, r) {
-    //parseFloat()
     return ((Math.random() * (r - l + 1) + l) / 100).toFixed(2);
 }
 
