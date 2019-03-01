@@ -16,7 +16,6 @@ html {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: Concert, nu, Arial, 微软雅黑;
   touch-action: none;
 }
 
@@ -32,6 +31,7 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: nu, Arial, 微软雅黑;
 }
 
 .body-div {
@@ -63,7 +63,6 @@ body {
   text-align: center;
 }
 
-
 .loading {
   width: 100%;
   height: 100%;
@@ -82,7 +81,7 @@ body {
 .photos {
   margin: 0;
   padding: 0;
-  top: 15%;
+  top: 17%;
   height: 55%;
   width: 80%;
   left: 8%;
@@ -181,6 +180,7 @@ body {
   padding: 0%;
   height: 100px;
   overflow: hidden;
+  top: 79%;
 }
 
 .list2 li {
@@ -324,18 +324,6 @@ body {
   }
 }
 
-/*  cake  */
-.cake-div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #00000088;
-  display: none;
-  z-index: 5;
-}
-
 /*  button  */
 .button {
   position: absolute;
@@ -353,377 +341,4 @@ body {
   left: 50%;
   z-index: 1;
   transform: translate(-50%, 0%)
-}
-
-
-/*   about   */
-.about-div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #00000088;
-  display: none;
-  z-index: 5;
-}
-
-.firework-div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #000000;
-  background-image: url('https://luangeng2008.gitee.io/cdn/backpic/8.jpg');
-  background-size: contain;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  display: none;
-  z-index: 5;
-}
-
-/* gift */
-.gift-div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #252021;
-  z-index: 9;
-}
-
-.giftbox {
-  width: 150px;
-  height: 110px;
-  position: absolute;
-  left: 50%;
-  margin-left: -75px;
-  cursor: pointer;
-  top: 45%;
-}
-
-.giftbox::after {
-  content: '';
-  position: absolute;
-  color: #fff;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 24px;
-  z-index: 1000;
-  -webkit-transform: rotate(-20deg);
-  transform: rotate(-20deg);
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0
-}
-
-.giftbox>div {
-  background: #5f5f5f;
-  position: absolute
-}
-
-.giftbox .cover {
-  top: 0;
-  left: 0;
-  height: 25%;
-  width: 100%;
-  z-index: 2
-}
-
-.giftbox .box {
-  bottom: 0;
-  height: 80%;
-  left: 5%;
-  right: 5%;
-  z-index: 1
-}
-
-.giftbox>div::after,
-.giftbox>div::before {
-  content: '';
-  position: absolute;
-  top: 0
-}
-
-.giftbox>div::before {
-  background: #eab561;
-  width: 25px;
-  left: 50%;
-  height: 100%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%)
-}
-
-.giftbox .box::after {
-  background: rgba(0, 0, 0, .1);
-  left: 0;
-  height: 30px;
-  width: 100%
-}
-
-.giftbox .cover div {
-  position: absolute;
-  height: 33px;
-  width: 30px;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -15px
-}
-
-.giftbox .cover div::before,
-.giftbox .cover div::after {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  content: '';
-  background: 0 0;
-  border-radius: 30px;
-  box-shadow: inset 0 0 0 7px #eab561
-}
-
-.giftbox .cover div::before {
-  -webkit-transform: translateX(-45%) skewY(40deg);
-  transform: translateX(-45%) skewY(40deg)
-}
-
-.giftbox .cover div::after {
-  -webkit-transform: translateX(45%) skewY(-40deg);
-  transform: translateX(45%) skewY(-40deg)
-}
-
-.step-1 .giftbox {
-  -webkit-animation: wobble .5s linear infinite forwards;
-  animation: wobble .5s linear infinite forwards
-}
-
-.step-2 .giftbox::after {
-  opacity: 0
-}
-
-.step-1 .giftbox .cover,
-.step-1 .giftbox .cover div {
-  -webkit-animation: wobble .5s .1s linear infinite forwards;
-  animation: wobble .5s .1s linear infinite forwards
-}
-
-.step-2 .giftbox .cover {
-  -webkit-animation: flyUp .4s ease-out forwards;
-  animation: flyUp .4s ease-out forwards
-}
-
-.step-2 .giftbox .box {
-  -webkit-animation: fallDown .2s .05s ease-in forwards;
-  animation: fallDown .2s .05s ease-in forwards
-}
-
-@-webkit-keyframes wobble {
-  25% {
-    -webkit-transform: rotate(4deg)
-  }
-
-  75% {
-    -webkit-transform: rotate(-2deg)
-  }
-}
-
-@keyframes wobble {
-  25% {
-    transform: rotate(4deg)
-  }
-
-  75% {
-    transform: rotate(-2deg)
-  }
-}
-
-@-webkit-keyframes flyUp {
-  75% {
-    opacity: 1
-  }
-
-  100% {
-    -webkit-transform: translateY(-500px) rotate(20deg);
-    opacity: 0
-  }
-}
-
-@keyframes flyUp {
-  75% {
-    opacity: 1
-  }
-
-  100% {
-    transform: translateY(-500px) rotate(20deg);
-    opacity: 0
-  }
-}
-
-@-webkit-keyframes fallDown {
-  75% {
-    opacity: 1
-  }
-
-  100% {
-    -webkit-transform: translateY(500px);
-    opacity: 0
-  }
-}
-
-@keyframes fallDown {
-  75% {
-    opacity: 1
-  }
-
-  100% {
-    transform: translateY(500px);
-    opacity: 0
-  }
-}
-
-
-
-/* cake 2*/
-.cake2 {
-  position: absolute;
-  width: 200px;
-  height: 500px;
-  left: 50%;
-  bottom: 53%;
-  margin-left: -100px;
-}
-
-/* ============================================== Candle
-*/
-.velas {
-  background: #ffffff;
-  border-radius: 10px;
-  position: absolute;
-  bottom: calc(53% + 90px);
-  left: 50%;
-  margin-left: -2.5px;
-  margin-top: -8.33333333px;
-  width: 5px;
-  height: 35px;
-  -webkit-transform: translateY(-300px);
-  -ms-transform: translateY(-300px);
-  transform: translateY(-300px);
-  -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-animation: in 500ms 6s ease-out forwards;
-  animation: in 500ms 6s ease-out forwards;
-}
-
-.velas:after,
-.velas:before {
-  background: rgba(255, 0, 0, 0.4);
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2.22222222px;
-}
-
-.velas:after {
-  top: 25%;
-  left: 0;
-}
-
-.velas:before {
-  top: 45%;
-  left: 0;
-}
-
-/* ============================================== Fire
-*/
-.fuego {
-  border-radius: 100%;
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  margin-left: -3.333px;
-  width: 6.66666667px;
-  height: 18px;
-}
-
-.fuego:nth-child(1) {
-  -webkit-animation: fuego 2s 6.5s infinite;
-  animation: fuego 2s 6.5s infinite;
-}
-
-.fuego:nth-child(2) {
-  -webkit-animation: fuego 1.5s 6.5s infinite;
-  animation: fuego 1.5s 6.5s infinite;
-}
-
-.fuego:nth-child(3) {
-  -webkit-animation: fuego 1s 6.5s infinite;
-  animation: fuego 1s 6.5s infinite;
-}
-
-.fuego:nth-child(4) {
-  -webkit-animation: fuego 0.5s 6.5s infinite;
-  animation: fuego 0.5s 6.5s infinite;
-}
-
-.fuego:nth-child(5) {
-  -webkit-animation: fuego 0.2s 6.5s infinite;
-  animation: fuego 0.2s 6.5s infinite;
-}
-
-/* ============================================== Animation Fire
-*/
-@-webkit-keyframes fuego {
-
-  0%,
-  100% {
-    background: rgba(254, 248, 97, 0.5);
-    -webkit-box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
-    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
-    -webkit-transform: translateY(0) scale(1);
-    transform: translateY(0) scale(1);
-  }
-
-  50% {
-    background: rgba(255, 50, 0, 0.1);
-    -webkit-box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
-    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
-    -webkit-transform: translateY(-20px) scale(0);
-    transform: translateY(-20px) scale(0);
-  }
-}
-
-@keyframes fuego {
-
-  0%,
-  100% {
-    background: rgba(254, 248, 97, 0.5);
-    -webkit-box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
-    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
-    -webkit-transform: translateY(0) scale(1);
-    transform: translateY(0) scale(1);
-  }
-
-  50% {
-    background: rgba(255, 50, 0, 0.1);
-    -webkit-box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
-    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
-    -webkit-transform: translateY(-20px) scale(0);
-    transform: translateY(-20px) scale(0);
-  }
-}
-
-@-webkit-keyframes in {
-  to {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-}
-
-@keyframes in {
-  to {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
 }

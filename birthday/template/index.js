@@ -1,27 +1,73 @@
-var photolist = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg"];
-var backbase = "https://luangeng2008.gitee.io/cdn/backpic/";
-var backpic = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg"];
+var photolist = [];
 var pi = 0;
-var bi = 0;
-var fworks = undefined;
 var audio = document.getElementById("audio");
-//var sound = document.getElementById("sound");
 var timer;
-var bopen = 0;
+
+var v1 = 1,
+    v2 = 1,
+    v3 = 1;
+let timerp = setInterval(function () {
+    $('#pg1').css('width', v1 + '%');
+    v1 = v1 + 9;
+    $('#pg2').css('width', v2 + '%');
+    v2 = v2 + 7;
+    $('#pg3').css('width', v3 + '%');
+    v3 += 5;
+    if (v3 > 110) {
+        clearInterval(timerp);
+        $('#button').fadeIn();
+    }
+}, 350);
 
 $(document).ready(function () {
-    audio.addEventListener('ended', mp3.next, false);
     $(document).on('touchmove', function (e) {
         e.preventDefault();
     });
     $('div').on('touchmove', function (e) {
         e.preventDefault();
     });
-
-    bokeh();
-    setTimeout("$('.loading').fadeOut()", 4000);
     $('.list li').css("animation-play-state", "paused");
+
+    let data = null;
+    let mode = getUrlParam('mode');
+    if(mode=='preview'){
+        data = defaultData;
+        refresh(data);
+        return;
+    }
+    if (window.parent == window) {
+        //phone
+        let id = getUrlParam('token');
+        query(id);
+    } else {
+        data = JSON.parse(localStorage.getItem("data"));
+        refresh(data);
+    }
 });
+
+$("#button").click(function () {
+    bokeh();
+    mp3.play();
+    $('.list1').addClass("list");
+    $('.list').children().css("animation-play-state", "running");
+    $('.loading').fadeOut()
+    setTimeout("photoShow()", 2000);
+});
+
+function refresh(data) {
+    if (data == null) {
+        $('html').html("请先编辑网页，然后再预览。");
+        return; // del
+    }
+    for (p in data) {
+        $("#" + p).html(data[p]);
+    }
+    for(let i=1; i<=6;i++ ){
+        photolist.push(data['p'+i]);
+    }
+    audio.src = data.music; //encodeURI
+    $('body').css('background-image', "url('" + data.backpic + "')");
+}
 
 function bokeh() {
     for (var i = 1; i <= 30; i++) {
@@ -31,72 +77,11 @@ function bokeh() {
     }
 }
 
-function mp3Show() {
-    if (bopen == 1) {
-        photoHide();
-    }
-    bopen = 4;
-    $('.mp3_div').fadeIn();
-    allHide();
-}
-
-function mp3Hide() {
-    allShow();
-    $('.mp3_div').fadeOut();
-    bopen = 0;
-}
-
-function mp3ul() {
-    for (var m in mp3list) {
-        var mm = "<li onclick='playn(" + m + ")'>" + mp3list[m] + "</li>";
-        $('.mp3-ul').append(mm);
-    }
-}
-
-function stop() {
-    $('bokeh').addClass('stop');
-}
-
-function restart() {
-    $('bokeh').removeClass('stop');
-}
-
-function cakeShow() {
-    if (bopen == 1) {
-        photoHide();
-    }
-    $('.cake-div').fadeIn();
-    $('.spinner').hide();
-    bopen = 3;
-    allHide();
-    var cakesvg = document.getElementById('cake-svg').innerHTML;
-    $('.cake2').html(cakesvg);
-}
-
-function cakeHide() {
-    $('.cake-div').fadeOut();
-    $('.spinner').show();
-    allShow();
-    bopen = 0;
-}
-
 function photoShow() {
-    if (bopen == 0) {
-        $('.photos').css("background-image", 'url("pic/' + photolist[pi] + '")');
-        $('.photos').addClass('pmove');
-        $('.photos').show();
-        timer = setInterval("photoShift()", 6000);
-        bopen = 1;
-    } else {
-        photoHide();
-    }
-}
-
-function photoHide() {
-    $('.photos').removeClass('pmove');
-    $('.photos').hide();
-    clearInterval(timer);
-    bopen = 0;
+    $('.photos').css("background-image", 'url("' + photolist[pi] + '")');
+    $('.photos').addClass('pmove');
+    $('.photos').show();
+    timer = setInterval("photoShift()", 6000);
 }
 
 function photoShift() {
@@ -104,79 +89,7 @@ function photoShift() {
     if (pi >= photolist.length) {
         pi = 0;
     }
-    $('.photos').css("background-image", 'url("pic/' + photolist[pi] + '")');
-}
-
-function clickGift() {
-    mp3.play();
-    mp3Hide();
-    $('.step-1').removeClass('step-1');
-    $('.step1').addClass('step-2');
-    $('.gift-div').fadeOut();
-    $('.list1').addClass("list");
-    $('.list').children().css("animation-play-state", "running");
-    setTimeout("photoShow()", 2000);
-}
-
-function aboutShow() {
-    allHide();
-    $('.about-div').fadeIn();
-}
-
-function aboutHide() {
-    $('.about-div').fadeOut();
-    allShow();
-}
-
-//function loading2(){
-//        let r = Math.ceil(Math.random()*100)%sconfig.loadingpic.length;
-//        let load2 = sconfig.loadingpic[r];
-//     if(load2!=undefined){$('.loading2').css('background-image', "url('https://luangeng2008.gitee.io/cdn/loading/p1.svg')");}
-//    $('.loading2').show();
-//    setTimeout("$('.loading2').hide()",2000)
-//}
-
-function fireShow() {
-    if (bopen == 1) {
-        photoHide()
-    }
-    $('.firework-div').show();
-    stop();
-    bopen = 2;
-    if (fworks == undefined) {
-        fworks = new Fireworks();
-    }
-}
-
-function fire() {
-    fworks.show();
-    $('.firestart').hide();
-}
-
-function fireHide() {
-    $('.firework-div').fadeOut();
-    bopen = 0;
-    restart();
-}
-
-function allShow() {
-    $('.body-div').show();
-}
-
-function allHide() {
-    $('.body-div').hide();
-}
-
-function changeBack() {
-    bi = bi + 1;
-    if (bi >= backpic.length) {
-        bi = 0;
-    }
-    $('body').css('background-image', "url('" + backbase + backpic[bi] + "')");
-}
-
-function changeBackto(n) {
-    $('body').css('background-image', "url('" + backbase + backpic[n] + "')");
+    $('.photos').css("background-image", 'url("' + photolist[pi] + '")');
 }
 
 function listtoggle(a) {
@@ -185,4 +98,21 @@ function listtoggle(a) {
     } else {
         $(a).children().css("animation-play-state", "running");
     }
+}
+
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg); //匹配目标参数
+    if (r != null) return unescape(r[2]);
+    return null; //返回参数值
+}
+
+function query(id) {
+    var query = new AV.Query('Birthday');
+    query.get(id).then(function (res) {
+        var data = res.get('data');
+        refresh(JSON.parse(data));
+    }, function (error) {
+        console.info('Failed to create new object, with error message: ' + error.message);
+    });
 }

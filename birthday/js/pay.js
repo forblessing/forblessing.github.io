@@ -28,7 +28,6 @@ function init() {
         ok();
     }
     AV.initialize("qGpowKJBhfJAFlsz4NtCLjlP-gzGzoHsz", "YKRMzp6TjQQ9op2YGxpYpmHg");
-    AV.User.logIn('', '').then(function (loginedUser) {}, function (error) {});
 }
 
 

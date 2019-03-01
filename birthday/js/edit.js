@@ -3,9 +3,9 @@ function checkForm() {
 }
 
 function init(){
-    let letter = getFromStorage();
-    if(letter!=null){
-        setData(letter);
+    let data = getFromStorage();
+    if(data!=null){
+        setData(data);
     }
 }
 
@@ -39,10 +39,10 @@ function form2Object(form) {
 }
 
 function save(){
-    let letter = form2Object(document.forms[0]);
-    localStorage.setItem('letter', JSON.stringify(letter));
+    let data = form2Object(document.forms[0]);
+    localStorage.setItem('data', JSON.stringify(data));
 }
 
 function getFromStorage() {
-    return JSON.parse(localStorage.getItem('letter'));
+    return JSON.parse(localStorage.getItem('data'));
 }
