@@ -71,7 +71,7 @@ body {
   background-image: url("https://luangeng2008.gitee.io/cdn/loading/l1.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   position: absolute;
   margin: 0;
   padding: 0;
