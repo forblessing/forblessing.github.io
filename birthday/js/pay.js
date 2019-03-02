@@ -1,7 +1,7 @@
 const ctime = 180;
 var time = ctime;
 var order;
-var oldprice = '19';
+var oldprice = '15';
 var storage = sessionStorage;
 var qrcode;
 var qrcode2;
@@ -54,7 +54,7 @@ function begin() {
 
 function newOrder() {
     order.oldprice = oldprice;
-    order.discount = random(100, 400);
+    order.discount = random(10, 200);
     order.price = (order.oldprice - order.discount).toFixed(2);
     order.source = window.location.href;
     order.createtime = jsClockGMT();
