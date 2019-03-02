@@ -7,27 +7,26 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://luangeng2008.gitee.io/cdn/favicon.ico" />
     <title>自助工具</title>
-    <link rel="stylesheet" href="../css/amazeui.min.css">
+    <link rel="stylesheet" href="css/amazeui.min.css">
+
     <style>
         .am-g {
             width: 60%;
-            margin-top: 100px;
+            margin-top:3%;
         }
     </style>
 </head>
 
-<body onload="init()">
+<body>
+
     <header data-am-widget="header" class="am-header am-header-default">
         <div class="am-header-left am-header-nav">
-            <a href="/" class="">
+            <a href="index.html" class="">
                 <i class="am-header-icon am-icon-home"></i>
             </a>
         </div>
-        <h1 class="am-header-title">
-            <a class=""> </a>
-        </h1>
+        <h1 class="am-header-title"></h1>
         <div class="am-header-right am-header-nav">
             <a href="tools.html" class="">
                 <i class="am-header-icon am-icon-bars"></i>
@@ -45,11 +44,9 @@
 
             <div class="am-form-group">
                 <div class="am-u-sm-10 am-u-sm-offset-2">
-                    <a onclick="setData()" class="am-btn am-btn-secondary am-btn-block">清空订单</a>
+                    <a onclick="email()" class="am-btn am-btn-secondary am-btn-block">联系客服</a>
                 </div>
             </div>
-
-            <hr data-am-widget="divider" class="am-divider am-divider-default" />
 
             <div class="am-form-group">
                 <label for="caption" class="am-u-sm-2 am-form-label">授权码</label>
@@ -60,38 +57,19 @@
 
             <div class="am-form-group">
                 <div class="am-u-sm-10 am-u-sm-offset-2">
-                    <a onclick="make()" class="am-btn am-btn-success am-btn-block">手动生成二维码</a>
+                    <a onclick="setData(defaultData)" class="am-btn am-btn-success am-btn-block">手动生成二维码</a>
                 </div>
             </div>
         </div>
-        <div id="qrcode" class="qrcode"></div>
     </div>
 
 
     <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://luangeng2008.gitee.io/cdn/js/qrcode.min.js"></script>
-    <script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-    <script src="js/pay.js"></script>
+    <script src="js/amazeui.min.js"></script>
+
     <script>
-        var qrcode;
-
-        function init() {
-            AV.initialize("qGpowKJBhfJAFlsz4NtCLjlP-gzGzoHsz", "YKRMzp6TjQQ9op2YGxpYpmHg");
-            qrcode = new QRCode(document.getElementById("qrcode"), {
-                width: 220,
-                height: 220
-            });
-        }
-
-        function make() {
-            var code = $('#caption').val();
-            if (code.trim().length == 0) {
-                return;
-            }
-            var order = JSON.parse(storage.getItem('order'));
-            order.id = code;
-            update(order);
-            qrcode.makeCode("https://letter.html?token=" + order.id);
+        function email(){
+            alert('请发送邮件到：1057935399@qq.com');
         }
     </script>
 </body>

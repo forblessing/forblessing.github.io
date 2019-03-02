@@ -85,15 +85,6 @@ function alipay() {
     newOrder();
 }
 
-function save() {
-    var Order = AV.Object.extend('Order');
-    var o = new Order();
-    o.set('paytime', jsClockGMT());
-    o.set('price', order.price);
-    o.set('type', 'alipay');
-    o.save().then(function (res) {}, function (error) {});
-}
-
 function update() {
     if (order.id != undefined) {
         var av = AV.Object.createWithoutData('Order', order.id);

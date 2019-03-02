@@ -26,7 +26,7 @@ $(document).ready(function () {
     $('div').on('touchmove', function (e) {
         e.preventDefault();
     });
-    $('.list li').css("animation-play-state", "paused");
+    $('.list2 li').css("animation-play-state", "paused");
 
     let data = null;
     let mode = getUrlParam('mode');
@@ -48,10 +48,9 @@ $(document).ready(function () {
 $("#button").click(function () {
     bokeh();
     mp3.play();
-    $('.list1').addClass("list");
-    $('.list').children().css("animation-play-state", "running");
     $('.loading').fadeOut()
-    setTimeout("photoShow()", 2000);
+    $('.list2').children().css("animation-play-state", "running");
+    setTimeout("photoShow()", 1500);
 });
 
 function refresh(data) {
