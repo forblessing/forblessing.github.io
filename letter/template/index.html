@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta content="width=device-width,height=device-height,maximum-scale=1.0,initial-scale=1.0,minimum-scale=1.0,user-scalable=no"
-        name="viewport">
+          name="viewport">
     <meta name="description" content="送给最亲爱的你">
     <title>送给最亲爱的你</title>
     <!-- <script src="https://luangeng.github.io/cdn/js/phone.js"></script> -->
-    <link rel="shortcut icon" href="https://luangeng2008.gitee.io/cdn/favicon.ico" />
-    <link rel="stylesheet" href="../../css/amazeui.min.css">
+    <link href="https://luangeng2008.gitee.io/cdn/favicon.ico" rel="shortcut icon"/>
+    <!--    <link rel="stylesheet" href="../../css/amazeui.min.css">-->
     <link href="style.css" media="screen and (max-width: 600px)" rel="stylesheet" type="text/css">
     <link href="mp3.css" media="screen and (max-width: 600px)" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://luangeng2008.gitee.io/cdn/css/firework-min.css">
@@ -18,66 +18,69 @@
 
 <body onload="init()">
 
-    <div class="loading">
-        <div style="position:absolute;width:90%;left:5%;top:20%; ">
-            <div class="col-md-offset-3 col-md-6">
-                <div class="am-progress am-progress-striped am-active">
-                    <div id="pg1" class="am-progress-bar am-progress-bar-danger" style="width:1%;"></div>
-                </div>
-                <div class="am-progress am-progress-striped am-active">
-                    <div id="pg2" class="am-progress-bar am-progress-bar-secondary" style="width:1%;"></div>
-                </div>
-                <div class="am-progress am-progress-striped am-active">
-                    <div id="pg3" class="am-progress-bar am-progress-bar-success" style="width:1%;"></div>
-                </div>
+<div class="loading">
+    <div style="position:absolute;width:90%;left:5%;top:20%; ">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="am-progress am-progress-striped am-active">
+                <div class="am-progress-bar am-progress-bar-danger" id="pg1" style="width:1%;"></div>
+            </div>
+            <div class="am-progress am-progress-striped am-active">
+                <div class="am-progress-bar am-progress-bar-secondary" id="pg2" style="width:1%;"></div>
+            </div>
+            <div class="am-progress am-progress-striped am-active">
+                <div class="am-progress-bar am-progress-bar-success" id="pg3" style="width:1%;"></div>
             </div>
         </div>
-
-        <div style="position:absolute;width:100%;bottom:20%;">
-            <button id="button" type="button" class="am-btn am-btn-success" style="position:absolute;display:none;width:60%;left:20%;">Click
-            </button>
-        </div>
     </div>
 
-    <div class="bb_div">
-        <div class="bb" id="bb_text">
-            <h2 id="caption"></h2>
-            <div class="bb_text">
-                <span id="text"></span>
-            </div>
-            <p class="bb_name" id="author"></p>
-        </div>
-        <div onclick="nextp()" class="next">-></div>
+    <div style="position:absolute;width:100%;bottom:20%;">
+        <button class="am-btn am-btn-success" id="button" style="position:absolute;display:none;width:60%;left:20%;"
+                type="button">Click
+        </button>
     </div>
+</div>
 
-    <div class="photos">
-        <div class="slider-ctr"></div>
-
-        <div class="memo">
-            <span>这是我们相识的第</span>
-            <div id="elapseClock" style="text-align:center;"></div>
-            <span id="word"></span>
+<div class="bb_div">
+    <div class="bb" id="bb_text">
+        <h2 id="caption"></h2>
+        <div class="bb_text">
+            <span id="text"></span>
         </div>
-        <div onclick="backp()" class="pre">
-            <-</div> <div onclick="nextp2()" class="next">->
-        </div>
+        <p class="bb_name" id="author"></p>
     </div>
+    <div class="next" onclick="nextp()">-&gt;</div>
+</div>
 
-    <div class="mp3_div">
-        <div class="blueyellow" style="width:100%;top:5%;text-align:center;font-size:8vw">歌曲选择列表</div>
-        <ul class="mp3-ul"></ul>
-        <div class="mp3time"></div>
-        <div class="process"><span class="expand"></span></div>
-        <div class="blueyellow pause" onclick="mp3.shift()" style="left:37%;">☆暂停</div>
-        <div class="blueyellow" onclick="mp3.next()" style="left:67%;">下一首</div>
-        <div onclick="backp2()" class="pre">
-            <-</div> </div> <canvas id="heart_c" style="position: absolute;z-index: -1;text-align: center;"></canvas>
-                <audio id="audio" loop="loop" controls="controls" preload="auto" style="display:none"></audio>
-                <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
-                <script type="text/javascript" src="mp3.js"></script>
-                <script type="text/javascript" src="heart.js"></script>
-                <script type="text/javascript" src="../js/default.js"></script>
-                <script type="text/javascript" src="index.js"></script>
+<div class="photos">
+    <div class="slider-ctr"></div>
+
+    <div class="memo">
+        <span>这是我们相识的第</span>
+        <div id="elapseClock" style="text-align:center;"></div>
+        <span id="word"></span>
+    </div>
+    <div class="pre" onclick="backp()"> &lt;-</div>
+    <div class="next" onclick="nextp2()">-&gt;</div>
+</div>
+
+<div class="mp3_div">
+    <div class="blueyellow" style="width:100%;top:5%;text-align:center;font-size:8vw">歌曲选择列表</div>
+    <ul class="mp3-ul"></ul>
+    <div class="mp3time"></div>
+    <div class="process"><span class="expand"></span></div>
+    <div class="blueyellow pause" onclick="mp3.shift()" style="left:37%;">☆暂停</div>
+    <div class="blueyellow" onclick="mp3.next()" style="left:67%;">下一首</div>
+    <div class="pre" onclick="backp2()">&lt;-</div>
+</div>
+<canvas id="heart_c" style="position: absolute;z-index: -1;text-align: center;"></canvas>
+<audio controls="controls" id="audio" loop="loop" preload="auto" style="display:none"></audio>
+
+<script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="mp3.js" type="text/javascript"></script>
+<script src="heart.js" type="text/javascript"></script>
+<script src="index.js" type="text/javascript"></script>
+<script src="../js/default.js" type="text/javascript"></script>
+<script src="../js/zpay-core-mini-0.6.1.js" type="text/javascript"></script>
 </body>
 
 </html>
