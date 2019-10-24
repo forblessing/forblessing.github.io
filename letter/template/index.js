@@ -40,7 +40,7 @@ var slidesArr;
 function init() {
     let letter = null;
     let mode = getUrlParam('mode');
-    if(mode=='preview'){
+    if(mode=='pre'){
         letter = defaultData;
         refresh(letter);
         return;
@@ -207,8 +207,8 @@ function timeElapse(c) {
 }
 
 function getUrlParam(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-    var r = window.location.search.substr(1).match(reg); //匹配目标参数
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
     return null; //返回参数值
 }

@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     let data = null;
     let mode = getUrlParam('mode');
-    if(mode=='preview'){
+    if(mode=='pre'){
         data = defaultData;
         refresh(data);
         return;
