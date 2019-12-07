@@ -48,18 +48,17 @@
             <div class="am-u-sm-5">
                 <div class="pay">
                     <div class="pay-b">
-                        <pre style="text-align:left">操作步骤：
-1. 完成编辑以后选择点击微信或支付宝，出现付款二维码后使用手机扫码支付，支付完成后网站
-2. 如果支付完成以后系统没有生成对应的二维码和访问地址，可联系客服，获取授权码
-3. 然后在自助页输入邀请码，点击自助生成二维码。
-
-注意事项：
-1. 扫码支付后请勿刷新浏览器，负责会导致订单查询中断。
-2.订单失效后请勿扫码支付，请重新生成一个订单。
+                        <pre style="text-align:left">使用说明：
+付款完成后等待客服发送授权码，输入授权码后点击生成二维码即可。
 </pre>
 
-                        <!-- <button onclick="weixin()" class="am-btn am-btn-success am-btn-block">微信支付</button> -->
-                        <button onclick="alipay()" class="am-btn am-btn-secondary am-btn-block">支付宝</button>
+<!--                        <button onclick="weixin()" class="am-btn am-btn-success am-btn-block">微信支付</button>-->
+<!--                        <button onclick="alipay()" class="am-btn am-btn-secondary am-btn-block">支付宝</button>-->
+                        <img src="../../image/weixin.jpeg" width="400px"/>
+                        <div style="margin:10px 0">
+                            <input type="text" id="caption" class="am-form-field" required="required" placeholder="请输入授权码">
+                        </div>
+                        <button onclick="" class="am-btn am-btn-success am-btn-block">生成二维码</button>
                         <a class="am-btn am-btn-danger am-btn-block" href="edit.html">返回编辑</a>
                     </div>
                     <div class="pay-c">
