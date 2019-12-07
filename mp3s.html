@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://luangeng2008.gitee.io/cdn/favicon.ico" />
     <title>歌曲列表</title>
-    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">
+    <link href="css/amazeui.min.css" rel="stylesheet">
 
     <style>
         .am-g {
@@ -76,7 +76,7 @@
                 <tr>
                     <td>生日快乐韩语</td>
                     <td>https://luangeng2008.gitee.io/cdn/mp3/生日快乐韩语歌.mp3</td>
-                    <td><i class="am-success am-icon-play"></i></td>
+                    <td><i class="am-success am-icon-play">点击试听</i></td>
                 </tr>
             </tbody>
         </table>
@@ -84,7 +84,7 @@
 
     <audio id="audio"></audio>
     <script src="https://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
-    <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script src="s/amazeui.min.js"></script>
     <script>
         $('i').click(function () {
             let url = $(this).parent().prev().html();

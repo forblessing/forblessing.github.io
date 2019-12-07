@@ -26,7 +26,6 @@ Element.prototype.typewriter = function (a) {
         if (b >= c.length) {
             clearInterval(e);
             document.getElementById("bb_text").run = undefined;
-            //        $('#nextp').fadeIn();
         }
     }, 150)
     return this;
@@ -38,6 +37,7 @@ var slidesLength;
 var slidesArr;
 
 function init() {
+    AV.initialize("qGpowKJBhfJAFlsz4NtCLjlP-gzGzoHsz", "YKRMzp6TjQQ9op2YGxpYpmHg");
     let letter = null;
     let mode = getUrlParam('mode');
     if(mode=='pre'){
@@ -214,7 +214,7 @@ function getUrlParam(name) {
 }
 
 function query(id) {
-    var query = new AV.Query('Letter');
+    var query = new AV.Query('Order');
     query.get(id).then(function (res) {
         var data = res.get('data');
         refresh(JSON.parse(data));
